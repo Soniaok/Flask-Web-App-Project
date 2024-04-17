@@ -6,7 +6,7 @@ pipeline {
         ANSIBLE_PLAYBOOK = 'deploy-flaskapp.yml'
         VENV_PATH = 'venv'
         TEST_SCRIPT = 'test.py'
-        EMAIL_RECIPIENT = 'Beautypop4sure@gmail.com'  // Replace with the recipient email address
+        EMAIL_RECIPIENT = 'okwesa100@gmail.com'  // Replace with the recipient email address
         FLASK_APP = 'app.py'
     }
 
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Checkout the code from your version control system (e.g., Git)
-                    git branch: 'main', url: 'https://github.com/beaustar2/Flask-App.git'
+                    git branch: 'main', url: 'https://github.com/Soniaok/Flask-Web-App-Project.git'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     // Set up a virtual environment
                     sh "python3 -m venv /home/ubuntu/Flask-Web-App-Project/flask_env"
-                    sh "source /home/ubuntu/Flask-App/flask_env/bin/activate"
+                    sh "source /home/ubuntu//Flask-Web-App-Project/flask_env/bin/activate"
                     sh "pip install -r requirements.txt"
                 }
             }
