@@ -5,14 +5,16 @@
 
   tasks:
     - name: Start Flask App on CentOS
-      command: "nohup python3 /home/centos/Ansible-Flaskapp/app.py"
+      command: "nohup python3 /home/centos/Flask-Web-App-Project
+           /app.py"
       async: 100
       poll: 0
       become_user: "{{ ansible_user }}"
       when: ansible_distribution == "CentOS"
 
     - name: Start Flask App on Ubuntu
-      command: "nohup python3 /home/ubuntu/Ansible-Flaskapp/app.py"
+      command: "nohup python3 /home/ubuntu/Flask-Web-App-Project
+               /app.py"
       async: 100
       poll: 0
       become_user: "{{ ansible_user }}"
