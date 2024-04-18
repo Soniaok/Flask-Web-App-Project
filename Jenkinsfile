@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        ANSIBLE_HOSTS_FILE = 'customizedhosts.ini'
+        ANSIBLE_HOSTS_FILE = 'Hosts.ini'
         ANSIBLE_PLAYBOOK = 'deploy-flaskapp.yml'
         VENV_PATH = 'venv'
         TEST_SCRIPT = 'test.py'
