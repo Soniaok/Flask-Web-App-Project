@@ -21,7 +21,7 @@
         state: present
       when: ansible_distribution == "Ubuntu"
 
-    - name: Install required packages (CentOS)
+    - name: Install required packages (ubuntu)
       yum:
         name:
           - python3
@@ -29,7 +29,7 @@
           - git
           - firewalld
         state: present
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "ubuntu"
 
     - name: Clone Flask-Web-App-Project from GitHub
       git:
@@ -74,7 +74,7 @@
         name: gunicorn
         executable: pip3
         state: present
-      when: ansible_distribution == 'CentOS'
+      when: ansible_distribution == 'ubuntu'
 
     - name: Install Gunicorn 
       pip:
@@ -95,19 +95,19 @@
         port: 22
       when: ansible_distribution == 'Ubuntu'
 
-    - name: Configure Firewall (CentOS)
+    - name: Configure Firewall (ubuntu)
       firewalld:
         port: 5000/tcp
         permanent: yes
         state: enabled
-      when: ansible_distribution == 'CentOS'
+      when: ansible_distribution == 'ubuntu'
 
-    - name: Restart firewalld for CentOS
+    - name: Restart firewalld for ubuntu
       systemd:
         name: firewalld
         state: restarted
       become: yes
-      when: ansible_distribution == 'CentOS'
+      when: ansible_distribution == 'ubuntu'
 
     - name: Enable UFW for Ubuntu
       command: ufw --force enable
